@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  LoginProject
+
+  Created by Mint on 1/8/21.
+  
+*/
+
+"welcome" = "Welcome back!";
+"email_placeholder" = "E-Mail";
+"password_placeholder" = "Passwort";
+"login_btn_title" = "EINLOGGEN";
+"dark_theme_btn_title" = "DARK THEME";
+"light_theme_btn_title" = "LIGHT THEME";
+"email_error" = "Bitte gib eine gültige E-mail Adresse ein";
