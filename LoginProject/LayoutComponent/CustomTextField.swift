@@ -96,9 +96,16 @@ class CustomTextField: UITextField {
     }
     
     func addLine(){
-        let lineView = UIView(frame: CGRect(x: 0, y: (self.frame.height - 1), width: self.frame.width, height: 1.0))
+        let lineView = UIView(frame: .zero)
         lineView.backgroundColor = .white
+        lineView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(lineView)
+        NSLayoutConstraint.activate([
+            lineView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            lineView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            lineView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            lineView.heightAnchor.constraint(equalToConstant: 1.0)
+        ])
     }
     
 }

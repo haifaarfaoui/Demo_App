@@ -35,6 +35,7 @@ class LoginView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
+        loginBtn.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
         self.commonInit()
     }
     
@@ -59,6 +60,7 @@ class LoginView: UIView {
         label.setText(NSLocalizedString("welcome", comment: ""))
         label.numberOfLines = 0
         label.textAlignment = .center
+        label.textColor = .white
         return label
     }()
     
@@ -130,5 +132,29 @@ class LoginView: UIView {
             loginBtn.heightAnchor.constraint(equalToConstant: Metrics.loginBtnHeight)
 
         ])
+    }
+    
+    @objc func loginAction(){
+        if passwordIsValid(txtfEmail.getText()) && emailIsValid(txtfEmail.getText()){
+            print("login valid")
+        }else{
+            print("login unvalid")
+        }
+    }
+    
+    func passwordIsValid(_ password: String)->Bool{
+        if password.count > 12{
+            return true
+        }
+        txtfPassword.showError(errorMessage: "not valid")
+        return false
+    }
+    
+    func emailIsValid(_ email: String)->Bool{
+        if email.contains("@"){
+            return true
+        }
+        txtfEmail.showError(errorMessage: "not valid")
+        return false
     }
 }

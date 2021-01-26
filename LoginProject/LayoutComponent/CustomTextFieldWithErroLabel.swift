@@ -45,7 +45,7 @@ class CustomTextFieldWithErroLabel: UIView {
     lazy var errorLabel: UILabel = {
         let errorLabel = UILabel(frame: .zero)
         errorLabel.translatesAutoresizingMaskIntoConstraints = false
-        errorLabel.apply(fontOfText: UIFont(), with: .red)
+        errorLabel.apply(fontOfText: UIFont.systemFont(ofSize: 12), with: .red)
         errorLabel.textAlignment = .left
         errorLabel.numberOfLines = Metrics.numberOferroLines
         return errorLabel
@@ -74,7 +74,7 @@ class CustomTextFieldWithErroLabel: UIView {
         
         textField.customDelegate = self
         self.layer.cornerRadius = Metrics.cornerRadius
-        self.backgroundColor = .lightGray
+        self.backgroundColor = .clear
         self.addSubview(textField)
         self.addSubview(errorLabel)
     
@@ -151,11 +151,10 @@ class CustomTextFieldWithErroLabel: UIView {
     }
     
     func clickLeftButton(_ sender: UIButton) {
+        sender.setImage(.icPasswordEye, for: .normal)
         if(self.iconClick == true) {
             textField.isSecureTextEntry = false
-//            sender.setImage(.icPswrdShow, for: .normal)
         } else {
-//            sender.setImage(.icPswrdHide, for: .normal)
             textField.isSecureTextEntry = true
         }
 
